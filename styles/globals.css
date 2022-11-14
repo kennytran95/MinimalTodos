@@ -29,14 +29,21 @@ input {
   outline: 0;
 }
 
+/* Root */
+
 :root {
   --main-blue: rgb(100, 149, 237);
+  --input-bg: rgb(59, 59, 59);
 }
+
+/* Title */
 
 .title-text {
   /* background-color: red; */
   text-align: center;
 }
+
+/* Login */
 
 .login-page {
   /* background-color: red; */
@@ -53,27 +60,25 @@ input {
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
+  min-width: 20rem;
+  /* max-width: 60rem; */
   /* height: 30vh; */
   /* width: 45vw; */
 }
 
 .email-input,
 .password-input {
+  border: solid 0px transparent;
   padding: 1rem;
+  min-width: 20rem;
   border-radius: 0.5rem;
-  border: solid 1px darkgray;
   transition: 200ms all ease-in-out;
 }
 
-.email-input:hover,
-.password-input:hover {
+.email-input-container:hover,
+.password-input-container:hover {
   border: solid 1px var(--main-blue);
 }
-
-/* .email-input:focus,
-.password-input:focus {
-  border: solid 1px var(--main-blue);
-} */
 
 .login-btn {
   background-color: cornflowerblue;
@@ -95,7 +100,7 @@ input {
 
 .invalid-input {
   border: solid 1px red;
-  padding: 1rem;
+  background-color: var(--input-bg);
   border-radius: 0.5rem;
 }
 
@@ -104,4 +109,173 @@ input {
   border-radius: 0.5rem;
   padding: 1rem;
   margin: 1rem 0rem;
+}
+
+.email-input-container {
+  background-color: var(--input-bg);
+  border: solid 1px gray;
+  border-radius: 0.5rem;
+}
+
+.password-input-container {
+  background-color: var(--input-bg);
+  border: solid 1px gray;
+  border-radius: 0.5rem;
+}
+
+.profile-icon {
+  /* color: red; */
+  padding-left: 1rem;
+}
+
+.lock-icon {
+  padding-left: 1rem;
+}
+
+/* List */
+
+.list-section {
+  /* border: solid 1px blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-container {
+  /* border: solid 1px green; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+  border: solid 1px gray;
+  border-radius: 2rem;
+  padding: 1rem 1.6rem;
+}
+
+.search-container:hover {
+  border: solid 1px var(--main-blue);
+  border-radius: 2rem;
+  padding: 1rem 1.6rem;
+}
+
+.search-icon {
+  color: var(--main-blue);
+  padding-right: 1rem;
+}
+
+.search {
+  border: solid 1px transparent;
+  background-color: transparent;
+  padding: 0.5rem;
+}
+
+.search-focus {
+  border: solid 1px var(--main-blue);
+  border-radius: 2rem;
+  padding: 1rem 1.6rem;
+}
+
+.new-btn {
+  background-color: transparent;
+  border: solid 1px gray;
+  border-radius: 2rem;
+  /* height: 3rem; */
+  width: 100px;
+  margin: 0rem 2rem;
+  padding: 1.6rem 2rem;
+  transition: 200ms all ease-in-out;
+}
+
+.new-btn:hover {
+  border: solid 1px var(--main-blue);
+  /* color: var(--main-blue); */
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px gray;
+  width: 30rem;
+  margin: 1rem;
+}
+
+/* List Form */
+
+.list-form {
+  /* border: solid 1px gold; */
+  margin: 1rem 0rem;
+}
+
+.new-todo-input {
+  border: solid 1px gray;
+  background-color: transparent;
+  border-radius: 2rem;
+  padding: 1rem 1.6rem;
+}
+
+.new-todo-focus {
+  border: solid 1px var(--main-blue);
+  background-color: transparent;
+  border-radius: 2rem;
+  padding: 1rem 1.6rem;
+}
+
+.save-btn {
+  background-color: transparent;
+  border: solid 1px gray;
+  border-radius: 2rem;
+  width: 80px;
+  margin: 0rem 2rem;
+  padding: 1rem;
+  transition: 200ms all ease-in-out;
+}
+
+.save-btn:hover {
+  border: solid 1px var(--main-blue);
+}
+
+/* ListEntry */
+
+.todo-container {
+  border-bottom: solid 1px gray;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: solid 1px gray; */
+  width: 100%;
+  height: 5rem;
+  padding: 1rem;
+  /* background-color: red; */
+}
+
+.icon-container {
+  /* border: solid 1px blue; */
+  margin-left: auto;
+}
+
+.todo-pen {
+  /* color: blue; */
+  margin: 0rem 1rem;
+}
+
+.todo-trash {
+  /* color: red; */
+  margin: 0rem 1rem;
 }

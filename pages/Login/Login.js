@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import EmailError from "./EmailError";
-import PasswordError from "./PasswordError";
+import EmailError from "./LoginErrorHandling/EmailError";
+import PasswordError from "./LoginErrorHandling/PasswordError";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Login() {
   let [email, setEmail] = useState("");
@@ -67,37 +69,53 @@ export default function Login() {
     <section className="login-page">
       <form className="login-container" onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor="email">Email</label>
-        <input
-          type="email"
+        <div
           className={
             !validEmail && emailFocus && email.length > 0
               ? "invalid-input"
-              : "email-input"
+              : "email-input-container"
           }
-          id="email"
-          value={email}
-          placeholder="user@rapptrlabs.com"
-          onChange={(e) => handleChangeEmail(e.target.value)}
-          onFocus={() => toggleEmailFocus(true)}
-          onBlur={() => toggleEmailFocus(false)}
-          required
-        />
+        >
+          <FontAwesomeIcon
+            icon={faUser}
+            className="fa-header-icons profile-icon"
+          />
+          <input
+            type="email"
+            className="email-input"
+            id="email"
+            value={email}
+            placeholder="user@rapptrlabs.com"
+            onChange={(e) => handleChangeEmail(e.target.value)}
+            onFocus={() => toggleEmailFocus(true)}
+            onBlur={() => toggleEmailFocus(false)}
+            required
+          />
+        </div>
         <label htmlFor="password">Password</label>
-        <input
-          type="password"
+        <div
           className={
             !validPassword && passwordFocus && password.length > 0
               ? "invalid-input"
-              : "password-input"
+              : "password-input-container"
           }
-          id="password"
-          placeholder="Must be at least 4 characters"
-          required
-          value={password}
-          onChange={(e) => handleChangePassword(e.target.value)}
-          onFocus={() => togglePasswordFocus(true)}
-          onBlur={() => togglePasswordFocus(false)}
-        />
+        >
+          <FontAwesomeIcon
+            icon={faLock}
+            className="fa-header-icons lock-icon"
+          />
+          <input
+            type="password"
+            className="password-input"
+            id="password"
+            placeholder="Must be at least 4 characters"
+            required
+            value={password}
+            onChange={(e) => handleChangePassword(e.target.value)}
+            onFocus={() => togglePasswordFocus(true)}
+            onBlur={() => togglePasswordFocus(false)}
+          />
+        </div>
         {emailFocus && !validEmail && email.length > 0 ? <EmailError /> : null}
         {passwordFocus && !validPassword && password.length > 0 ? (
           <PasswordError />
