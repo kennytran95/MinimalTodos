@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import ListForm from "./ListForm";
 
-export default function Header({ newPostForm, toggleNewPostForm }) {
+export default function Header({ newPostForm, toggleNewPostForm, filterTodo }) {
   let [searchFocus, toggleSearchFocus] = useState(false);
   let [searchInput, setSearchInput] = useState("");
 
   function handleSearchChange(searchInput) {
     setSearchInput(searchInput);
+    filterTodo(searchInput);
   }
 
   function handleFormRequest(prev) {

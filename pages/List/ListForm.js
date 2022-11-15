@@ -13,6 +13,7 @@ export default function ListForm({ todos, setTodos }) {
     let todoList = [...todos];
     todoList.push(newTodo);
     setTodos(todoList);
+    setNewTodo("");
   }
 
   return (
