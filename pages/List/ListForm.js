@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ListForm({ todos, setTodos }) {
+export default function ListForm({ todos, setTodos, toggleNewPostForm }) {
   let [listFormFocus, toggleListFormFocus] = useState(false);
   let [newTodo, setNewTodo] = useState("");
 
@@ -14,6 +14,7 @@ export default function ListForm({ todos, setTodos }) {
     todoList.push(newTodo);
     setTodos(todoList);
     setNewTodo("");
+    toggleNewPostForm(false);
   }
 
   return (
@@ -22,6 +23,8 @@ export default function ListForm({ todos, setTodos }) {
         type="text"
         placeholder="Add a to-do!"
         className={listFormFocus ? "new-todo-focus" : "new-todo-input"}
+        minlength="1"
+        maxLength="25"
         onChange={(e) => {
           changeNewTodo(e.target.value);
         }}

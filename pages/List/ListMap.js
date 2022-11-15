@@ -2,7 +2,12 @@ import React from "react";
 import todoList from "../../To-DoListData";
 import ListEntry from "./ListEntry";
 
-export default function ListMap({ todos, deleteTodo, editTodo }) {
+export default function ListMap({
+  todos,
+  deleteTodo,
+  editTodo,
+  usingFiltered,
+}) {
   return (
     <div className="list-container">
       {todos.map((todo, index) => {
@@ -12,6 +17,7 @@ export default function ListMap({ todos, deleteTodo, editTodo }) {
             todo={todo}
             deleteTodo={deleteTodo}
             editTodo={editTodo}
+            usingFiltered={usingFiltered}
           />
         );
       })}

@@ -8,6 +8,8 @@ export default function List() {
   let [todos, setTodos] = useState(todoList);
   let [newPostForm, toggleNewPostForm] = useState(false);
   let [filteredTodos, setfilteredTodos] = useState([]);
+  let [noMatchesFound, toggleNoMatchesFound] = useState(false);
+  let [usingFiltered, toggleUsingFiltered] = useState(false);
 
   const initialRender = useRef(true);
 
@@ -49,6 +51,11 @@ export default function List() {
         filtered.push(todo);
       }
     });
+    if (filtered.length === 0) {
+      toggleNoMatchesFound(true);
+    } else {
+      toggleNoMatchesFound(false);
+    }
     setfilteredTodos(filtered);
   }
 
@@ -58,16 +65,30 @@ export default function List() {
         newPostForm={newPostForm}
         toggleNewPostForm={toggleNewPostForm}
         filterTodo={filterTodo}
+        toggleUsingFiltered={toggleUsingFiltered}
       />
-      {newPostForm && <ListForm todos={todos} setTodos={setTodos} />}
+      {newPostForm && (
+        <ListForm
+          todos={todos}
+          setTodos={setTodos}
+          toggleNewPostForm={toggleNewPostForm}
+        />
+      )}
+      {noMatchesFound && <p>No Matches Found!</p>}
       {filteredTodos.length > 0 ? (
         <ListMap
           todos={filteredTodos}
           deleteTodo={deleteTodo}
           editTodo={editTodo}
+          usingFiltered={usingFiltered}
         />
       ) : (
-        <ListMap todos={todos} deleteTodo={deleteTodo} editTodo={editTodo} />
+        <ListMap
+          todos={todos}
+          deleteTodo={deleteTodo}
+          editTodo={editTodo}
+          usingFiltered={usingFiltered}
+        />
       )}
     </section>
   );

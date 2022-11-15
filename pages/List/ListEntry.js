@@ -2,7 +2,12 @@ import { faPen, faTrash, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-export default function ListEntry({ todo, deleteTodo, editTodo }) {
+export default function ListEntry({
+  todo,
+  deleteTodo,
+  editTodo,
+  usingFiltered,
+}) {
   let [editText, toggleEditText] = useState(false);
   return (
     <div className="todo-container">
@@ -32,20 +37,23 @@ export default function ListEntry({ todo, deleteTodo, editTodo }) {
         ) : (
           <span>{todo}</span>
         )}
-        <div className="icon-container">
-          <FontAwesomeIcon
-            icon={faPen}
-            className="todo-pen"
-            onClick={() => {
-              toggleEditText(true);
-            }}
-          />
-          <FontAwesomeIcon
-            icon={faTrash}
-            className="todo-trash"
-            onClick={() => deleteTodo(todo)}
-          />
-        </div>
+
+        {usingFiltered === false ? (
+          <div className="icon-container">
+            <FontAwesomeIcon
+              icon={faPen}
+              className="todo-pen"
+              onClick={() => {
+                toggleEditText(true);
+              }}
+            />
+            <FontAwesomeIcon
+              icon={faTrash}
+              className="todo-trash"
+              onClick={() => deleteTodo(todo)}
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   );
