@@ -10,10 +10,10 @@ export default function Login({ handleSession }) {
   let [email, setEmail] = useState("");
   let [validEmail, toggleValidEmail] = useState(false);
   let [emailFocus, toggleEmailFocus] = useState(false);
-
   let [password, setPassword] = useState("");
   let [validPassword, toggleValidPassword] = useState(false);
   let [passwordFocus, togglePasswordFocus] = useState(false);
+  let [invalidLogin, toggleInvalidLogin] = useState(false);
 
   useEffect(() => {
     if (checkValidEmail(email)) {
@@ -68,9 +68,13 @@ export default function Login({ handleSession }) {
     axios
       .post(`http://dev.rapptrlabs.com/Tests/scripts/user-login.php`, params)
       .then((result) => {
+        toggleInvalidLogin(false);
         handleSession(result.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        toggleInvalidLogin(true);
+        console.error(err);
+      });
   }
 
   return (
@@ -140,6 +144,7 @@ export default function Login({ handleSession }) {
           >
             Login
           </button>
+          {invalidLogin && <p>Invalid username or password.</p>}
         </form>
       </section>
     </>
