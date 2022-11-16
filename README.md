@@ -39,8 +39,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Technologies
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB&labelColor=black)
-<br>
 ![Javascript](https://img.shields.io/badge/-Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F)
-<br>
 ![Next.js](https://img.shields.io/badge/-NextJS-62cfc9?style=for-the-badge&labelColor=black&logo=next.js&logoColor=white)
-<br>
+![CSS](https://img.shields.io/badge/-CSS-62cfc9?style=for-the-badge&labelColor=black&logo=css&logoColor=white)
