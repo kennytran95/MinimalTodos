@@ -19,10 +19,14 @@ export default function ListForm({ todos, setTodos, toggleNewPostForm }) {
 
   return (
     <form className="list-form" onSubmit={(e) => handleSubmit(e)}>
+      <label htmlFor="new-todo" className="new-todo-label">
+        Create a new to-do
+      </label>
       <input
         type="text"
         placeholder="Add a to-do!"
         className={listFormFocus ? "new-todo-focus" : "new-todo-input"}
+        id="new-todo"
         minLength="1"
         maxLength="25"
         onChange={(e) => {
