@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import ListForm from "./ListForm";
 import todoList from "../../To-DoListData";
 
-export default function List() {
+export default function List({ toggleLoggedIn, profileData }) {
   let [todos, setTodos] = useState(todoList);
   let [newPostForm, toggleNewPostForm] = useState(false);
   let [filteredTodos, setfilteredTodos] = useState([]);
@@ -60,36 +60,47 @@ export default function List() {
   }
 
   return (
-    <section className="list-section">
-      <Header
-        newPostForm={newPostForm}
-        toggleNewPostForm={toggleNewPostForm}
-        filterTodo={filterTodo}
-        toggleUsingFiltered={toggleUsingFiltered}
-      />
-      {newPostForm && (
-        <ListForm
-          todos={todos}
-          setTodos={setTodos}
+    <>
+      <div className="nav-container">
+        <img src={profileData.profilePicture} className="profile-pic"></img>
+        <h3 className="profile-username">{profileData.username}</h3>
+        <button className="sign-out-btn" onClick={() => toggleLoggedIn(false)}>
+          Sign out
+        </button>
+      </div>
+      <h1 className="list-title">My To-Do List</h1>
+
+      <section className="list-section">
+        <Header
+          newPostForm={newPostForm}
           toggleNewPostForm={toggleNewPostForm}
+          filterTodo={filterTodo}
+          toggleUsingFiltered={toggleUsingFiltered}
         />
-      )}
-      {noMatchesFound && <p>No Matches Found!</p>}
-      {filteredTodos.length > 0 ? (
-        <ListMap
-          todos={filteredTodos}
-          deleteTodo={deleteTodo}
-          editTodo={editTodo}
-          usingFiltered={usingFiltered}
-        />
-      ) : (
-        <ListMap
-          todos={todos}
-          deleteTodo={deleteTodo}
-          editTodo={editTodo}
-          usingFiltered={usingFiltered}
-        />
-      )}
-    </section>
+        {newPostForm && (
+          <ListForm
+            todos={todos}
+            setTodos={setTodos}
+            toggleNewPostForm={toggleNewPostForm}
+          />
+        )}
+        {noMatchesFound && <p>No Matches Found!</p>}
+        {filteredTodos.length > 0 ? (
+          <ListMap
+            todos={filteredTodos}
+            deleteTodo={deleteTodo}
+            editTodo={editTodo}
+            usingFiltered={usingFiltered}
+          />
+        ) : (
+          <ListMap
+            todos={todos}
+            deleteTodo={deleteTodo}
+            editTodo={editTodo}
+            usingFiltered={usingFiltered}
+          />
+        )}
+      </section>
+    </>
   );
 }

@@ -23,7 +23,7 @@ export default function ListForm({ todos, setTodos, toggleNewPostForm }) {
         type="text"
         placeholder="Add a to-do!"
         className={listFormFocus ? "new-todo-focus" : "new-todo-input"}
-        minlength="1"
+        minLength="1"
         maxLength="25"
         onChange={(e) => {
           changeNewTodo(e.target.value);

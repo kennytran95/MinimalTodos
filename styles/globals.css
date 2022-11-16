@@ -45,6 +45,56 @@ input {
 
 /* Login */
 
+.list-title {
+  text-align: center;
+}
+
+.nav-container {
+  /* border: solid 1px green; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sign-out-btn {
+  background-color: var(--main-blue);
+  border: solid 1px transparent;
+  border-radius: 10rem;
+  height: 2rem;
+  width: 5rem;
+  margin: 1rem;
+  transition: 50ms all ease-in;
+}
+
+.sign-out-btn:hover {
+  background-color: transparent;
+  border: solid 1px var(--main-blue);
+  border-radius: 10rem;
+  height: 2rem;
+  width: 5rem;
+  margin: 1rem;
+  animation-name: shake;
+  animation-duration: 0.4s;
+  transition-timing-function: linear;
+}
+@keyframes shake {
+  0% {
+    transform: rotate(0turn) scale(1);
+    color: white;
+  }
+  25% {
+    transform: rotate(0.01turn) scale(1);
+    color: var(--main-blue);
+  }
+  75% {
+    transform: rotate(-0.01turn) scale(1);
+    color: var(--main-blue);
+  }
+  100% {
+    transform: rotate(0turn) scale(1);
+    color: white;
+  }
+}
+
 .login-page {
   /* background-color: red; */
   display: flex;
@@ -60,7 +110,7 @@ input {
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
-  min-width: 20rem;
+  min-width: 25rem;
   /* max-width: 60rem; */
   /* height: 30vh; */
   /* width: 45vw; */
@@ -111,17 +161,19 @@ input {
   margin: 1rem 0rem;
 }
 
-.email-input-container {
-  background-color: var(--input-bg);
-  border: solid 1px gray;
-  border-radius: 0.5rem;
-}
-
+.email-input-container,
 .password-input-container {
   background-color: var(--input-bg);
   border: solid 1px gray;
   border-radius: 0.5rem;
+  min-width: 22rem;
 }
+
+/* .password-input-container {
+  background-color: var(--input-bg);
+  border: solid 1px gray;
+  border-radius: 0.5rem;
+} */
 
 .profile-icon {
   /* color: red; */
@@ -242,6 +294,20 @@ input {
 
 .save-btn:hover {
   border: solid 1px var(--main-blue);
+}
+
+.profile-pic {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 10rem;
+  border: solid 1px gray;
+  align-self: center;
+}
+
+.profile-username {
+  /* border: solid 1px red; */
+  margin-left: 1rem;
+  text-transform: uppercase;
 }
 
 /* ListEntry */
